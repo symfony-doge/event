@@ -36,3 +36,7 @@ func (ls ROListenerSession) Close() {
 func (ls ROListenerSession) wait() {
 	<-ls.base.done
 }
+
+func newROListenerSession(base *listenerSession, nc chan<- Event) ROListenerSession {
+	return ROListenerSession{base, nc}
+}
