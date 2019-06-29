@@ -11,11 +11,11 @@ import (
 )
 
 func osmpConsumeFunc(e event.Event) {
-	fmt.Printf("Event has received. Type: %d, Payload: %v\n", e.Type, e.Payload)
+	fmt.Printf("An event has received. Type: %d, Payload: %v\n", e.Type, e.Payload)
 }
 
 func OneSubscriberManyPublishers() {
-	fmt.Println("One subscriber many publishers example...")
+	fmt.Println("One subscriber many publishers (no routing) example...")
 
 	var listener event.Listener = event.DefaultListenerInstance()
 
