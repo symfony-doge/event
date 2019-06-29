@@ -12,6 +12,8 @@ $ go get -u -d github.com/symfony-doge/event@latest
 
 ### DefaultListener
 
+One subscriber, multiple publishers, no special routing.
+
 [DefaultListener](default_listener.go) acts like a subscriber that receives and process events (i.e. messages in context of pubsub pattern)
 from multiple publishers. It listens a channel wrapped by [ROListenerSession](ro_listener_session.go).
 This implementation doesn't support any custom routing.
@@ -19,29 +21,26 @@ This implementation doesn't support any custom routing.
 See [example](example/one_subscriber_many_publishers.go) code snippet:
 
 ```go
-fmt.Println("One subscriber many publishers example...")
+fmt.Println("One subscriber many publishers (no routing) example...")
 
+var consumeFunc event.ConsumeFunc = func (e event.Event) {
+	fmt.Printf("An event has been received. Type: %d, Payload: %v\n", e.Type, e.Payload)
+}
 var listener event.Listener = event.DefaultListenerInstance()
 
 fmt.Println("Starting listening session...")
-
-var consumeFunc event.ConsumeFunc = func (e event.Event) {
-	fmt.Printf("An event has received. Type: %d, Payload: %v\n", e.Type, e.Payload)
-}
-
 listenerSession, listenErr := listener.Listen(consumeFunc)
 if nil != listenErr {
-	fmt.Errorf("An error has occurred during Listen call:", listenErr)
+	fmt.Println("An error has been occurred during Listen call:", listenErr)
+	os.Exit(1)
 }
 
 fmt.Println("Scheduling cleanup for listening session...")
-
 defer listenerSession.Close()
 
 var notifyChannel chan<- event.Event = listenerSession.NotifyChannel()
 
 fmt.Println("Pushing events to the notification channel...")
-
 notifyChannel <- event.WithTypeAndPayload(1, "test payload 1")
 notifyChannel <- event.WithTypeAndPayload(2, "test payload 2")
 notifyChannel <- event.WithTypeAndPayload(3, "test payload 3")
