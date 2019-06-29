@@ -13,7 +13,7 @@ $ go get -u -d github.com/symfony-doge/event@latest
 ### DefaultListener
 
 [DefaultListener](default_listener.go) acts like a subscriber that receives and process events (i.e. messages in context of pubsub pattern)
-from multiple publishers. It listens a channel wrapped by [listenerSession](listener_session.go).
+from multiple publishers. It listens a channel wrapped by [ROListenerSession](ro_listener_session.go).
 
 ## See also
 

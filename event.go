@@ -17,6 +17,7 @@ type Event struct {
 
 type Events []Event
 
-func NewEvent(t EventType, payload interface{}) Event {
+// Returns a new event with specified type and data payload.
+func WithTypeAndPayload(t EventType, payload interface{}) Event {
 	return Event{t, payload}
 }
