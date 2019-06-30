@@ -9,12 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - No changes yet.
 
-## [0.1.0] - 2019-06-30
+## [v0.1.0] - 2019-06-30
 ### Added
 
 - Event model.
 - Listener interface.
 - DefaultListener implementation (one subscriber, multiple publishers, no special routing).
 
-[Unreleased]: https://github.com/symfony-doge/event/compare/0.1.0...0.x
-[0.1.0]: https://github.com/symfony-doge/event/releases/tag/0.1.0
+[Unreleased]: https://github.com/symfony-doge/event/compare/v0.1.0...v0.x
+[v0.1.0]: https://github.com/symfony-doge/event/releases/tag/v0.1.0

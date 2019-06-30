@@ -5,7 +5,7 @@ A set of reusable components for building a concurrent, message-oriented middlew
 ## Installation
 
 ```
-$ go get -u -d github.com/symfony-doge/event@latest
+$ go get -u -d github.com/symfony-doge/event
 ```
 
 ## Usage
