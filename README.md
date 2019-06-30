@@ -45,9 +45,9 @@ notifyChannel <- event.WithTypeAndPayload(3, "test payload 3")
 Output will be:
 
 ```
-Event has received. Type: 1, Payload: test payload 1
-Event has received. Type: 2, Payload: test payload 2
-Event has received. Type: 3, Payload: test payload 3
+An event has been received. Type: 1, Payload: test payload 1
+An event has been received. Type: 2, Payload: test payload 2
+An event has been received. Type: 3, Payload: test payload 3
 ```
 
 ## See also
