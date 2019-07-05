@@ -31,9 +31,9 @@ type DefaultListener struct {
 	history []*listenerSession
 }
 
-// Starts and returns new listening session with notification channel to which
-// senders should push their events; stops listening when the notify channel
-// becomes closed.
+// Listen method starts and returns a new listening session with notification
+// channel to which senders should push their events; stops listening when
+// the notify channel becomes closed.
 func (l *DefaultListener) Listen(fn ConsumeFunc) (ROListenerSession, error) {
 	var notifyChannel = make(chan Event, dlNotifyChannelBufferSize)
 	var listenerSession = newListenerSession()
@@ -93,12 +93,16 @@ func (l *DefaultListener) historyRotate(ls *listenerSession) {
 	l.history = append(l.history, ls)
 }
 
+// NewDefaultListener returns a reference to the newly created DefaultListener
+// instance.
 func NewDefaultListener() *DefaultListener {
 	return &DefaultListener{
 		history: make([]*listenerSession, dlMaxHistoryEntries),
 	}
 }
 
+// DefaultListenerInstance returns a reference to the static DefaultListener
+// instance.
 func DefaultListenerInstance() *DefaultListener {
 	defaultListenerOnce.Do(func() {
 		defaultListenerInstance = NewDefaultListener()

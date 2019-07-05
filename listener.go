@@ -15,15 +15,15 @@ type ConsumeFunc func(Event)
 //
 // Usage example:
 //
-// listenerSession, listenErr := eventListener.Listen(func(e Event) {})
-// if listenErr != nil {
-//     // Handle error.
-// }
+//     listenerSession, listenErr := eventListener.Listen(func(e Event) {})
+//     if listenErr != nil {
+//         // Handle error.
+//     }
 //
-// var notifyChannel chan<- Event = listenerSession.NotifyChannel()
-// notifyChannel <- Event{}
+//     var notifyChannel chan<- Event = listenerSession.NotifyChannel()
+//     notifyChannel <- Event{}
 //
-// listenerSession.Close()    // Use this method to close the channel safely.
+//     listenerSession.Close()    // Use this method to close the channel safely.
 type Listener interface {
 	Listen(ConsumeFunc) (ROListenerSession, error)
 }

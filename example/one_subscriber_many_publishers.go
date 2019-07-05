@@ -15,6 +15,8 @@ func osmpConsumeFunc(e event.Event) {
 	fmt.Printf("An event has been received. Type: %d, Payload: %v\n", e.Type, e.Payload)
 }
 
+// OneSubscriberManyPublishers is a demo code snippet that represents a common
+// event listener use case.
 func OneSubscriberManyPublishers() {
 	fmt.Println("One subscriber many publishers (no routing) example...")
 

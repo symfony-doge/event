@@ -1,5 +1,9 @@
 # Symfony Doge's Event
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/symfony-doge/event)](https://goreportcard.com/report/github.com/symfony-doge/event)
+[![GoDoc](https://godoc.org/github.com/symfony-doge/event?status.svg)](https://godoc.org/github.com/symfony-doge/event)
+[![GitHub](https://img.shields.io/github/license/symfony-doge/event.svg)](LICENSE)
+
 A set of reusable components for building a concurrent, message-oriented middleware in Go.
 
 ## Installation

@@ -20,12 +20,13 @@ type ROListenerSession struct {
 	notifyChannel chan<- Event
 }
 
-// Returns a notification channel for sending events.
+// NotifyChannel method returns a notification channel for sending events.
 func (ls ROListenerSession) NotifyChannel() chan<- Event {
 	return ls.notifyChannel
 }
 
-// Use it to safely close the notification channel and stop event listening session.
+// Close method should be used to safely close the notification channel and
+// stop the event listening session.
 func (ls ROListenerSession) Close() {
 	// This will ensure that all remaining events are properly processed.
 	defer ls.wait()

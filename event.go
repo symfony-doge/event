@@ -4,9 +4,11 @@
 
 package event
 
+// EventType is the category (or tag/marker) for events routing.
 type EventType uint8
 
-// Represents an event with type information and a custom payload.
+// Event represents a message in pubsub pattern with type information and
+// a custom data payload.
 type Event struct {
 	// The event type to decide receiver's logic.
 	Type EventType
@@ -15,9 +17,11 @@ type Event struct {
 	Payload interface{}
 }
 
+// Events is an alias to []Event
 type Events []Event
 
-// Returns a new event with specified type and data payload.
+// WithTypeAndPayload is a constructor that returns a new event with
+// specified type and data payload.
 func WithTypeAndPayload(t EventType, payload interface{}) Event {
 	return Event{t, payload}
 }
