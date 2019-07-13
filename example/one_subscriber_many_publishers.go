@@ -20,18 +20,9 @@ func osmpConsumeFunc(e event.Event) {
 func OneSubscriberManyPublishers() {
 	fmt.Println("One subscriber many publishers (no routing) example...")
 
-	var listener event.Listener = event.DefaultListenerInstance()
-
 	fmt.Println("Starting listening session...")
 
-	listenerSession, listenErr := listener.Listen(osmpConsumeFunc)
-	if nil != listenErr {
-		fmt.Println("An error has been occurred during Listen call:", listenErr)
-		os.Exit(1)
-	}
-
-	fmt.Println("Scheduling cleanup for listening session...")
-
+	listenerSession := event.MustListen(osmpConsumeFunc)
 	defer listenerSession.Close()
 
 	var notifyChannel chan<- event.Event = listenerSession.NotifyChannel()

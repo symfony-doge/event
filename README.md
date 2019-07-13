@@ -29,14 +29,7 @@ var consumeFunc event.ConsumeFunc = func (e event.Event) {
 	fmt.Printf("An event has been received. Type: %d, Payload: %v\n", e.Type, e.Payload)
 }
 
-var listener event.Listener = event.DefaultListenerInstance()
-
-listenerSession, listenErr := listener.Listen(consumeFunc)
-if nil != listenErr {
-	fmt.Println("An error has been occurred during Listen call:", listenErr)
-	os.Exit(1)
-}
-
+listenerSession := event.MustListen(consumeFunc)
 defer listenerSession.Close()
 
 var notifyChannel chan<- event.Event = listenerSession.NotifyChannel()
