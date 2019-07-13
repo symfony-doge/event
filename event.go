@@ -4,6 +4,10 @@
 
 package event
 
+import (
+	"os"
+)
+
 // EventType is the category (or tag/marker) for events routing.
 type EventType uint8
 
@@ -24,4 +28,19 @@ type Events []Event
 // specified type and data payload.
 func WithTypeAndPayload(t EventType, payload interface{}) Event {
 	return Event{t, payload}
+}
+
+// MustListen is a shortcut for starting a common event listener session.
+// It will abort the program execution if any error occurs.
+func MustListen(fn ConsumeFunc) ROListenerSession {
+	var listener = DefaultListenerInstance()
+
+	listenerSession, listenErr := listener.Listen(fn)
+	if nil != listenErr {
+		fmt.Println("An error has been occurred during event.MustListen call:", listenErr)
+
+		os.Exit(1)
+	}
+
+	return listenerSession
 }
