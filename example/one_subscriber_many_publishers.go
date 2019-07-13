@@ -6,7 +6,6 @@ package example
 
 import (
 	"fmt"
-	"os"
 
 	"github.com/symfony-doge/event"
 )
