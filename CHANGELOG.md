@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 
-- No changes yet.
+- TODO: event dispatcher.
+
+## [v0.2.0] - 2019-07-14
+### Added
+
+- `MustListen` shortcut for starting a common event listening session in console environment.
 
 ## [v0.1.1] - 2019-07-05
 ### Fixed
@@ -21,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Listener interface.
 - DefaultListener implementation (one subscriber, multiple publishers, no special routing).
 
-[Unreleased]: https://github.com/symfony-doge/event/compare/v0.1.1...v0.x
+[Unreleased]: https://github.com/symfony-doge/event/compare/v0.2.0...v0.x
+[v0.2.0]: https://github.com/symfony-doge/event/releases/tag/v0.2.0
 [v0.1.1]: https://github.com/symfony-doge/event/releases/tag/v0.1.1
 [v0.1.0]: https://github.com/symfony-doge/event/releases/tag/v0.1.0
